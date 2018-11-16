@@ -55,22 +55,21 @@
 </template>
 
 <script>
-	import firebase from "firebase";
-	import { db } from "../db";
+import firebase from "firebase";
+import { db } from "../db";
 
-	export default {
-		data: () => {
-			userName: ''
-			userPasswd: ''
-		},
-		watch: {
-	    },
-	    methods: {
-	    	registerUser: function() {
-	    		console.log("mocked action: registerUser");
-	    	}
-	    }
-	};
+export default {
+  data: () => {
+    "";
+    "";
+  },
+  watch: {},
+  methods: {
+    registerUser: function() {
+      console.log("mocked action: registerUser");
+    }
+  }
+};
 </script>
 
 <style scoped>

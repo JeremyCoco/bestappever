@@ -2,7 +2,7 @@
 	<div class="container-fluid">
 		<div class="row align-items-center screenContainer">
 			<div class="col">
-				<img src="http://placehold.it/300x300" class="img-fluid mb-5" /><br/>
+				<img src="/img/logo.png" width="150" class="img-fluid mb-3" /><br/>
 				<h1 class="mb-3 text-light">
 					Be Your Best
 				</h1>

@@ -3,9 +3,9 @@
 		<div class="row align-items-center screenContainer">
 			<div class="col">
 				<div class="row text-center">
-					<div class="col-auto mx-auto">
+					<div class="col-auto mx-auto pt-5">
 						<h3 class="text-light">
-							<img src="http://placehold.it/40x40" class="mb-1 mr-2" />
+							<img src="/img/logo.png" width="30" class="mb-2 mr-3" />
 							<small>Be Your Best</small>
 						</h3>
 						<h1 class="text-light">

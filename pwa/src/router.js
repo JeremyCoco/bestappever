@@ -77,6 +77,7 @@ export default new Router({
       name: "MemberDetails",
       component: MemberDetails
     },
+    {
       path: "/Team/Dashboard",
       name: "TeamDashboard",
       component: TeamDashboard

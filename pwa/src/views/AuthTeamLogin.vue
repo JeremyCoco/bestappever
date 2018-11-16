@@ -28,11 +28,9 @@
 							</label>
 							<input type="password" class="form-control" v-model="userPasswd" />
 						</div>
-						<router-link :to="{ path: '/Auth/Team/' + $route.params.name + '/Login' }"
-						tag="button"
-						class="btn btn-primary">
+						<button class="btn btn-primary" v-on:click="loginUser()">
 							LOGIN
-						</router-link>
+						</button>
 
 						<p class="mb-0 mt-4">
 							Don't have account in this team?
@@ -62,8 +60,15 @@
 
 	export default {
 		data: () => {
+			userName: ''
+			userPasswd: ''
 		},
 		watch: {
+	    },
+	    methods: {
+	    	loginUser: function() {
+	    		console.log("mocked action: loginUser");
+	    	}
 	    }
 	};
 </script>

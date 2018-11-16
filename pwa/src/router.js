@@ -16,6 +16,9 @@ import AuthTeamLogin from "./views/AuthTeamLogin";
 
 import TeamDashboard from "./views/TeamDashboard";
 
+import TermsOfUse from "./views/TermsOfUse";
+import Privacy from "./views/Privacy";
+
 Vue.use(Router);
 
 export default new Router({
@@ -73,14 +76,24 @@ export default new Router({
       component: Statistics
     },
     {
-      path: "/team/taskDetails",
+      path: "/team/taskDetails/:taskId",
       name: "TaskDetails",
       component: TaskDetails
     },
     {
-      path: "/team/memberDetails",
+      path: "/team/memberDetails/:memberId",
       name: "MemberDetails",
       component: MemberDetails
+    },
+    {
+      path: "/termsOfUse",
+      name: "TermsOfUse",
+      component: TermsOfUse
+    },
+    {
+      path: "/privacy",
+      name: "Privacy",
+      component: Privacy
     }
   ]
 });

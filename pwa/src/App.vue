@@ -66,4 +66,8 @@ body {
   background: #70f4d8;
   margin: 10px auto;
 }
+
+.btn {
+  border-radius: 0px !important;
+}
 </style>

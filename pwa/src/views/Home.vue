@@ -6,12 +6,20 @@
 				<h1 class="mb-3 text-light">
 					Be Your Best
 				</h1>
-				<router-link to="/Auth/Team/Find" tag="button" class="btn btn-primary mb-3">
-					FIND YOUR TEAM
-				</router-link><br/>
-				<router-link to="/Auth/Team/Create" tag="button" class="btn btn-outline-primary">
-					CREATE NEW TEAM
-				</router-link>
+				<div class="row">
+					<div class="col-6 mx-auto">
+						<router-link to="/Auth/Team/Find" tag="button" class="btn btn-primary btn-block mb-3">
+							FIND YOUR TEAM
+						</router-link>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-6 mx-auto">
+						<router-link to="/Auth/Team/Create" tag="button" class="btn btn-outline-primary btn-block">
+							CREATE NEW TEAM
+						</router-link>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

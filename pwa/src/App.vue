@@ -32,5 +32,16 @@ body{
   margin: 0px;
 }
 
+.screenContainer {
+  height: 100vh;
+  background: rgb(97,163,165);
+  background: linear-gradient(140deg, rgba(97,163,165,1) 0%, rgba(70,54,93,1) 35%, rgba(108,53,92,1) 93%);
+}
 
+.smallDividerBlock{
+  width: 100px;
+  height: 10px;
+  background: #70F4D8;
+  margin: 10px auto;
+}
 </style>

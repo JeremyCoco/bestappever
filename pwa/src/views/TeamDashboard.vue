@@ -3,8 +3,10 @@
 </template>
 
 <script>
+	import firebase from "firebase";
+	import { db } from "../db";
+
 export default {
-  name: "Login"
 };
 </script>
 

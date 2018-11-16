@@ -51,13 +51,9 @@ body {
 
 .screenContainer {
   min-height: 100vh;
-  background: rgb(97, 163, 165);
-  background: linear-gradient(
-    140deg,
-    rgba(97, 163, 165, 1) 0%,
-    rgba(70, 54, 93, 1) 35%,
-    rgba(108, 53, 92, 1) 93%
-  );
+  background: url(/img/app_bg.png) no-repeat center center;
+  background-size: cover;
+
 }
 
 .smallDividerBlock {

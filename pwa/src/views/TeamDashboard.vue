@@ -1,5 +1,7 @@
 <template>
-    
+    <div class="container">
+    	jestem pusty
+    </div>
 </template>
 
 <script>

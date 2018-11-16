@@ -48,6 +48,11 @@ export default new Router({
       props: true
     },
     {
+      path: "/Team/Dashboard",
+      name: "TeamDashboard",
+      component: TeamDashboard
+    },
+    {
       path: "/team/memberTypes",
       name: "MemberTypes",
       component: MemberTypes
@@ -76,11 +81,6 @@ export default new Router({
       path: "/team/memberDetails",
       name: "MemberDetails",
       component: MemberDetails
-    },
-    {
-      path: "/Team/Dashboard",
-      name: "TeamDashboard",
-      component: TeamDashboard
     }
   ]
 });

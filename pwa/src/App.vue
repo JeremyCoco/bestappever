@@ -7,6 +7,7 @@
 <style lang="scss">
 @import "./scss/custom-bootstrap.scss";
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../node_modules/bootstrap-vue/dist/bootstrap-vue.css";
 </style>
 
 <style lang="scss">

@@ -17,13 +17,9 @@
 							<label>
 								GROUP NAME
 							</label>
-							<input type="text" class="form-control" v-model="teamName" />
+							<input type="text" class="form-control" v-model="teamName"/>
 						</div>
-						<router-link :to="{ path: '/Auth/Team/' + teamName + '/Login' }"
-						tag="button"
-						class="btn btn-primary">
-							CREATE
-						</router-link>
+						<button @click="createTeam(teamName)" class="btn btn-primary">CREATE</button>
 
 						<p class="mb-0 mt-4">
 							Already have a team?
@@ -41,6 +37,12 @@
 				</div>
 			</div>
 		</div>
+        <b-modal ref="teamExist" hide-footer title="Time not found">
+            <div class="d-block text-center">
+                <h3>This team name exist.</h3>
+            </div>
+            <b-btn class="mt-3" variant="outline-danger" block @click="hideModal">Close</b-btn>
+        </b-modal>
 	</div>
 </template>
 
@@ -58,9 +60,31 @@ export default {
   firebase: {
     teams: db.ref("teams")
   },
-  watch: {
-    teamName: function(val) {
-      this.teamName = val;
+  methods: {
+    createTeam(teamName) {
+      let isTeam = false;
+      let self = this;
+      this.$firebaseRefs.teams
+        .once("value")
+        .then(function(snapshot) {
+          snapshot.forEach(function(childSnapshot) {
+            let childData = childSnapshot.val();
+            if (childData.name === teamName) {
+              self.$refs.teamExist.show();
+              isTeam = true;
+            }
+          });
+        })
+        .then(function() {
+          if (!isTeam) {
+            self.$firebaseRefs.teams.push({
+              name: teamName
+            });
+          }
+        });
+    },
+    hideModal() {
+      this.$refs.teamExist.hide();
     }
   }
 };

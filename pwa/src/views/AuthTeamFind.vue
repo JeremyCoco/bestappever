@@ -40,6 +40,12 @@
 				</div>
 			</div>
 		</div>
+        <b-modal ref="teamRef" hide-footer title="Time not found">
+            <div class="d-block text-center">
+                <h3>The team that you looking for doesnt exist. Click below to create new.</h3>
+            </div>
+            <b-btn class="mt-3" variant="outline-danger" block @click="hideModal">Create Team</b-btn>
+        </b-modal>
 	</div>
 </template>
 
@@ -59,19 +65,28 @@ export default {
   },
   methods: {
     findTeam(teamName) {
-      // this.$firebaseRefs.teams.push({
-      //   name: "ziomki2"
-      // });
+      let isTeam = false;
       let self = this;
-      this.$firebaseRefs.teams.once("value").then(function(snapshot) {
-        snapshot.forEach(function(childSnapshot) {
-          let childData = childSnapshot.val();
-          if (childData.name === teamName) {
-            self.$router.push(`/Auth/Team/${teamName}/Login`);
+      this.$firebaseRefs.teams
+        .once("value")
+        .then(function(snapshot) {
+          snapshot.forEach(function(childSnapshot) {
+            let childData = childSnapshot.val();
+            if (childData.name === teamName) {
+              self.$router.push(`/Auth/Team/${teamName}/Login`);
+              isTeam = true;
+            }
+          });
+        })
+        .then(function() {
+          if (!isTeam) {
+            self.$refs.teamRef.show();
           }
         });
-      });
-      this.$router.push(`/Auth/Team/${teamName}/Register`);
+    },
+    hideModal() {
+      this.$refs.teamRef.hide();
+      this.$router.push(`/Auth/Team/Create`);
     }
   }
 };

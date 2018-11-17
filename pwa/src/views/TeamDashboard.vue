@@ -28,6 +28,5 @@
 .dashboardTopHeader {
   background: url(/img/app_bg.png) no-repeat center center;
   background-size: cover;
-
 }
 </style>

@@ -7,14 +7,14 @@
 					Be Your Best
 				</h1>
 				<div class="row">
-					<div class="col-6 mx-auto">
+					<div class="col-sm-10 col-md-6 col-lg-4 mx-auto">
 						<router-link to="/Auth/Team/Find" tag="button" class="btn btn-primary btn-block mb-3">
 							FIND YOUR TEAM
 						</router-link>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-6 mx-auto">
+					<div class="col-sm-10 col-md-6 col-lg-4 mx-auto">
 						<router-link to="/Auth/Team/Create" tag="button" class="btn btn-outline-primary btn-block">
 							CREATE NEW TEAM
 						</router-link>
@@ -31,13 +31,3 @@ export default {};
 
 <style scoped>
 </style>
-
-<!--
-	MAROS CZA TO ZROBIĆ NA JUSZ:
-	1. Find Team ma szukać drużyny w liście drużyn na serwerze(na nie ma zwraca błąd)
-	2. Create team ma tworzyć drużynę(jak już jest ma zwrócic błąd)
-	3. Login ma logować do konta(sprawdza czy jest drużyna o danej nazwie i w niej user, jak nie ma to zwraca błąd)
-	4. Register ma stwarzać nowe konto w drużynie(jak już istnieje, ma zwrócić błąd)
-	5. Rejestracja ma jednocześnie logować do apki
-	6. po logowaniu użytkownik trafia do ekranu dashboard.
--->

@@ -10,30 +10,16 @@
 		    <div class="col-12 pb-5">
 			    <div class="row">
 				    <div class="col-12 mb-3">
-						<div class="card text-left">
+						<div class="card text-left" v-for="task in tasks">
 							<div class="card-body">
 								<strong class="float-right">
-									data dodania
+									{{ task.createdAt | formatDate }}
 								</strong>
-								<h5 class="card-title">Task Name</h5>
+								<h5 class="card-title">{{ task.title }}</h5>
 								<p class="card-text">
-									data dodania
+									{{ task.username }}
 								</p>
-								<a href="#" class="btn btn-primary">Go to details</a>
-							</div>
-						</div>
-				    </div>
-				    <div class="col-12">
-						<div class="card text-left">
-							<div class="card-body">
-								<strong class="float-right text-danger">
-									no employee assigned
-								</strong>
-								<h5 class="card-title">Task Name</h5>
-								<p class="card-text">
-									data dodania
-								</p>
-								<a href="#" class="btn btn-primary">Go to details</a>
+								<router-link :to="{ path: '/team/taskDetails/' + task.id }" class="btn btn-primary">Go to details</router-link>
 							</div>
 						</div>
 				    </div>
@@ -45,21 +31,35 @@
 </template>
 
 <script>
-	import DashboardHeader from "@/components/DashboardHeader";
-	import DashboardFooter from "@/components/DashboardFooter";
+import DashboardHeader from "@/components/DashboardHeader";
+import DashboardFooter from "@/components/DashboardFooter";
 
-	export default {
-		components: {
-			"DashboardHeader": DashboardHeader,
-			"DashboardFooter": DashboardFooter
-		}
-	};
+export default {
+  data: () => {
+    return {
+      tasks: ""
+    };
+  },
+  components: {
+    DashboardHeader: DashboardHeader,
+    DashboardFooter: DashboardFooter
+  },
+  mounted: function() {
+    let self = this;
+    this.$axios
+      .get("http://kathon.hackierz.com/Teams/One/1")
+      .then(function(req) {
+        self.tasks = req.data.tasks.map(objects => {
+          return objects;
+        });
+      });
+  }
+};
 </script>
 
 <style scoped>
 .dashboardTopHeader {
   background: url(/img/app_bg.png) no-repeat center center;
   background-size: cover;
-
 }
 </style>

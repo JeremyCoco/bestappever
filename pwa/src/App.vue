@@ -54,12 +54,11 @@ body {
   min-height: 100vh;
   background: url(/img/app_bg.png) no-repeat center center;
   background-size: cover;
-
 }
 
 .smallDividerBlock {
-  width: 100px;
-  height: 10px;
+  width: 70%;
+  height: 1px;
   background: #70f4d8;
   margin: 10px auto;
 }

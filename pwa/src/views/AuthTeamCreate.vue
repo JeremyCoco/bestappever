@@ -50,6 +50,7 @@
 import firebase from "firebase";
 import { db } from "../db";
 
+
 export default {
   data: () => {
     return {

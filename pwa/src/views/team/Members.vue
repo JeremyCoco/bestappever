@@ -33,31 +33,31 @@
 </template>
 
 <script>
-	import DashboardHeader from "@/components/DashboardHeader";
-	import DashboardFooter from "@/components/DashboardFooter";
+import DashboardHeader from "@/components/DashboardHeader";
+import DashboardFooter from "@/components/DashboardFooter";
 
-	export default {
-	  data: () => {
-	    return {
-	      membersNames: '',
-          roleName: ''
-        }
-      },
-		components: {
-			"DashboardHeader": DashboardHeader,
-			"DashboardFooter": DashboardFooter
-		},
-      mounted: function() {
-        let self = this;
-        this.$axios
-          .get("http://kathon.hackierz.com/Teams/one/1")
-          .then(function(req) {
-            self.membersNames = req.data.members.map((objects)=>{
-              return objects
-            });
-          });
-      },
-	};
+export default {
+  data: () => {
+    return {
+      membersNames: "",
+      roleName: ""
+    };
+  },
+  components: {
+    DashboardHeader: DashboardHeader,
+    DashboardFooter: DashboardFooter
+  },
+  mounted: function() {
+    let self = this;
+    this.$axios
+      .get("http://kathon.hackierz.com/Teams/one/1")
+      .then(function(req) {
+        self.membersNames = req.data.members.map(objects => {
+          return objects;
+        });
+      });
+  }
+};
 </script>
 
 <style scoped lang="scss">
@@ -67,24 +67,23 @@
 }
 
 .memberCard {
-	text-decoration: none;
-	color: initial;
-    .card-body {
-        display: flex;
-    }
-    img {
-        width: 10%;
-    }
-    h5 {
-        align-self: center;
-        margin: 0   ;
-    }
+  text-decoration: none;
+  color: initial;
+  .card-body {
+    display: flex;
+  }
+  img {
+    width: 10%;
+  }
+  h5 {
+    align-self: center;
+    margin: 0;
+  }
 }
 
 .memberCard:hover {
-	text-decoration: none;
-	color: initial;
-	filter: drop-shadow(3px 6px 3px rgba(0, 0, 0, 0.6));
-	
+  text-decoration: none;
+  color: initial;
+  filter: drop-shadow(3px 6px 3px rgba(0, 0, 0, 0.6));
 }
 </style>

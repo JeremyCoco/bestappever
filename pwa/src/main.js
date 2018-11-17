@@ -3,9 +3,16 @@ import VueFire from "vuefire";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
-import axios from 'axios'
+import axios from "axios";
 import "./registerServiceWorker";
-import BootstrapVue from 'bootstrap-vue'
+import BootstrapVue from "bootstrap-vue";
+import moment from "moment";
+
+Vue.filter("formatDate", function(value) {
+  if (value) {
+    return moment(String(value)).format("MM/DD/YYYY hh:mm");
+  }
+});
 
 Vue.config.productionTip = false;
 Vue.use(VueFire);

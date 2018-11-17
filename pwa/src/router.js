@@ -78,7 +78,8 @@ export default new Router({
     {
       path: "/team/taskDetails/:taskId",
       name: "TaskDetails",
-      component: TaskDetails
+      component: TaskDetails,
+      props: true
     },
     {
       path: "/team/memberDetails/:memberId",

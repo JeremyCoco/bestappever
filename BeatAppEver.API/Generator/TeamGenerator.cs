@@ -1,10 +1,10 @@
-﻿using BestAppEver.ComputingEngine.Models;
+﻿using BestAppEver.API.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BestAppEver.ComputingEngine.Generator
+namespace BestAppEver.API.Generator
 {
     abstract public class TeamGenerator
     {

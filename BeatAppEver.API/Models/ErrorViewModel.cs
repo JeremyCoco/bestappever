@@ -1,6 +1,6 @@
 using System;
 
-namespace BestAppEver.ComputingEngine.Models
+namespace BestAppEver.API.Models
 {
     public class ErrorViewModel
     {

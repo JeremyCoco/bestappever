@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BestAppEver.ComputingEngine.Models;
+using BestAppEver.API.Models;
 
-namespace BestAppEver.ComputingEngine.Generator
+namespace BestAppEver.API.Generator
 {
     public class FiremenTeamGenerator : TeamGenerator
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace BestAppEver.ComputingEngine.Helpers
+namespace BestAppEver.API.Helpers
 {
     public class FirebaseRequest
     {

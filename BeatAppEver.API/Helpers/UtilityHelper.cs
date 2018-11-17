@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BestAppEver.ComputingEngine.Helpers
+namespace BestAppEver.API.Helpers
 {
     public class UtilityHelper
     {

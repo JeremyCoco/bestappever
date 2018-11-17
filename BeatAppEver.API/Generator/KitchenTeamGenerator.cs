@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BestAppEver.ComputingEngine.Models;
+using BestAppEver.API.Models;
 
-namespace BestAppEver.ComputingEngine.Generator
+namespace BestAppEver.API.Generator
 {
     public class KitchenTeamGenerator : TeamGenerator
     {
@@ -21,7 +21,8 @@ namespace BestAppEver.ComputingEngine.Generator
                 Lastname = "Dowd",
                 Email = "dyan.dowd@fakekitchen.com.pl",
                 AssignedRole = null,
-                IsAdmin = true
+                IsAdmin = true,
+                AvatarPath = "https://robohash.org/Dyan"
             };
         }
 
@@ -44,7 +45,8 @@ namespace BestAppEver.ComputingEngine.Generator
                     Lastname = lname,
                     Email = CreateEmail(fname, lname),
                     AssignedRole = GetTeamTypes().ElementAt(rand.Next(0, GetTeamTypes().Count-1)),
-                    IsAdmin = false
+                    IsAdmin = false,
+                    AvatarPath = "https://robohash.org/" + fname
                 });
             }
 

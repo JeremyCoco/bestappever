@@ -4,7 +4,7 @@
 		    <DashboardHeader />
 		    <div class="col-12 p-5">
 			    <div class="xd">
-			    	content(moje zadania i takie tam)
+			    	<button @click="getCosik">sdsadasd</button>
 			    </div>
 		    </div>
 		    <DashboardFooter />
@@ -13,15 +13,29 @@
 </template>
 
 <script>
-	import DashboardHeader from "@/components/DashboardHeader";
-	import DashboardFooter from "@/components/DashboardFooter";
+import DashboardHeader from "@/components/DashboardHeader";
+import DashboardFooter from "@/components/DashboardFooter";
 
-	export default {
-		components: {
-			"DashboardHeader": DashboardHeader,
-			"DashboardFooter": DashboardFooter
-		}
-	};
+export default {
+  components: {
+    DashboardHeader: DashboardHeader,
+    DashboardFooter: DashboardFooter
+  },
+  mounted: function() {
+    this.$axios
+      .get("http://kathon.hackierz.com/Teams/one/1")
+      .then(function(data) {
+        console.log(data.data);
+      });
+  },
+  methods: {
+    getCosik() {
+      this.$axios.get("http://kathon.hackierz.com/Teams").then(function(data) {
+        console.log(data);
+      });
+    }
+  }
+};
 </script>
 
 <style scoped>

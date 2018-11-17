@@ -19,7 +19,7 @@
 		    </div>
 		    <div class="col-12 dashboardTopHeader p-5 text-light text-left">
 		    	<div class="row align-items-center">
-		    		<div class="col-auto">
+		    		<div class="col-md-12 col-lg-4 on-small">
 				    	<div class="row">
 				    		<div class="col-auto">
 								<img src="/img/logo.png" width="50" class="mb-2" />
@@ -34,36 +34,33 @@
 				    		</div>
 					    </div>
 				    	<small>
-				    		<a href="#" class="btn btn-link">my profile</a>
-				    		<a href="#" class="btn btn-link">settings</a>
+				    		<a href="#" class="btn btn-link">My profile</a>|
+				    		<a href="#" class="btn btn-link">Settings</a>|
 							<a href="#" class="btn btn-link text-danger">Logout</a>
 				    	</small>
 		    		</div>
-		    		<div class="col-auto ml-auto text-center">
-				    	<div class="row">
-				    		<div class="col-auto">
-							    <h3>
+		    		<div class="col-md-12 col-lg-8 ml-auto text-center">
+				    	<div class="row to-right">
+				    		<div class="col-md-3">
+							    <h3 class="img-container">
+                                    <img src="/img/icons/todo.png">
 							    	<strong>120</strong><br/>
-							    	<small class="text-info">
-							    		TO DO
-							    	</small>
 							    </h3>
+                                <h3><small class="text-info">TO DO</small></h3>
 				    		</div>
-				    		<div class="col-auto">
-							    <h3>
+				    		<div class="col-md-3">
+							    <h3 class="img-container">
+                                    <img src="/img/icons/inprogress.png">
 							    	<strong>2</strong><br/>
-							    	<small class="text-warning">
-							    		IN PROGRESS
-							    	</small>
 							    </h3>
+                                <h3><small class="text-warning">IN PROGRESS</small></h3>
 				    		</div>
-				    		<div class="col-auto">
-							    <h3>
+				    		<div class="col-md-3">
+							    <h3 class="img-container">
+                                    <img src="/img/icons/done.png">
 							    	<strong>1243</strong><br/>
-							    	<small class="text-success">
-							    		DONE
-							    	</small>
 							    </h3>
+                                <h3><small class="text-success">DONE</small></h3>
 				    		</div>
 					    </div>
 		    		</div>
@@ -77,10 +74,52 @@
 export default {};
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .dashboardTopHeader {
   background: url(/img/app_bg.png) no-repeat center center;
   background-size: cover;
+}
+.img-container {
+  position: relative;
+  img {
+    width: 50%;
+    height: auto;
+  }
+  strong {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%); /* iOS */
+    transform: translate(-50%, -50%);
+  }
+}
+.to-right {
+  justify-content: end;
+}
+@media only screen and (max-width: 975px) {
+  .on-small {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    .row {
+      justify-content: center;
+    }
+  }
+  .to-right {
+    justify-content: center;
+    margin-top: 20px;
+  }
+}
 
+@media only screen and (max-width: 767px) {
+  .img-container img {
+    width: 25%;
+  }
+}
+
+@media only screen and (max-width: 410px) {
+  .img-container img {
+    width: 35%;
+  }
 }
 </style>

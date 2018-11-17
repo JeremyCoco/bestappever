@@ -4,10 +4,10 @@
 // Override / set color variables
 $white: #fff;
 $black: #000;
-$green: #6B355B;
-$blue: #70F4D8;
-$orange: #48385B;
-$yellow: #60A1A3;
+$green: #85ff9e;
+$blue: #add3d3;
+$orange: #84c8fb;
+$yellow: #a86a87;
 $red: #e5001e;
 
 // Create grayscale
@@ -18,12 +18,12 @@ $gray-lighter: #ededed;
 $gray-lightest: #fafafa;
 
 // Set brand colors
-$primary: $blue;
+$primary: #fad462;
 $success: $green;
 $info: $yellow;
 $warning: $orange;
 $danger: $red;
-
+$secondary: #48385b ;
 // Override button colors
 $btn-info-color: darken($info, 45);
 

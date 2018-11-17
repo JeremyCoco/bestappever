@@ -6,6 +6,7 @@ using BeatAppEver.API.Data;
 using BestAppEver.API.Generator;
 using BestAppEver.API.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BeatAppEver.API.Controllers
 {
@@ -66,6 +67,40 @@ namespace BeatAppEver.API.Controllers
 
             _context.Teams.Add(cSiteTeam);
             _context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult TasksForKitchen(int number)
+        {
+            Random rand = new Random();
+
+            Team model = _context.Teams.Include(n => n.Members).ThenInclude(n => n.AssignedRole).Include(n => n.MemberTypes).FirstOrDefault(n => n.Id == 1);
+
+            for(int i = 0; i < number; i++)
+            {
+                var modelToAdd = new BestAppEver.API.Models.Task
+                {
+                    DificultyGradeByWorker = rand.Next(0, 100),
+                    DificultyGradeByLeader = rand.Next(0, 100),
+
+                    TimeEstimatedByWorker = rand.Next(0, 100),
+                    ActualTimePassed = rand.Next(0, 100)
+                };
+
+                if (rand.Next(0, 100) > 90)
+                {
+                    modelToAdd.ResultGradeByLeader = rand.Next(0, 50);
+                    modelToAdd.ResultGradeByWorker = rand.Next(0, 50);
+                }
+
+                modelToAdd.username = model.Members.OrderBy(n => Guid.NewGuid()).Select(n => n.Email).FirstOrDefault();
+
+                model.Tasks.Add(modelToAdd);
+            }
+
+            _context.SaveChanges();
+
 
             return RedirectToAction("Index");
         }

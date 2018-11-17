@@ -24,7 +24,7 @@ namespace BestAppEver.API.Controllers
 
         public IActionResult Index()
         {
-            ICollection<Team> model = _context.Teams.Include(n => n.Members).Include(n => n.MemberTypes).Include(n => n.Tasks).Select(n => n).ToList();
+            ICollection<Team> model = _context.Teams.Include(n => n.Members).Include(n => n.MemberTypes).Select(n => n).ToList();
 
             return View(model);
         }

@@ -11,7 +11,5 @@ namespace BestAppEver.API.Models
 
         public string Name { get; set; }
         public string Description { get; set; }
-
-        public Team Team { get; set; }
     }
 }

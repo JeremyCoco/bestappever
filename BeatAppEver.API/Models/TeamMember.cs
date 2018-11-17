@@ -16,7 +16,5 @@ namespace BestAppEver.API.Models
 
         public TeamMemberType AssignedRole { get; set; }
         public bool IsAdmin { get; set; }
-
-        public Team Team { get; set; }
     }
 }

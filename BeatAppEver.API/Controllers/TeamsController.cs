@@ -11,7 +11,7 @@ using Newtonsoft.Json;
 
 namespace BeatAppEver.API.Controllers
 {
-    [Route("[controller]/[action]")]
+    [Route("[controller]")]
     public class TeamsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -26,15 +26,15 @@ namespace BeatAppEver.API.Controllers
         public IActionResult GetAll()
         {
             ICollection<Team> model = _context.Teams.Select(n => n).ToList();
-            return View(model);
+            return Json(model);
         }
 
         [HttpGet]
         [Route("one/{id}")]
-        public IActionResult GetByIdAsync(int id)
+        public IActionResult GetById(int id)
         {
-            Team model = _context.Teams.Include(n => n.Members).Include(n => n.MemberTypes).Include(n => n.Tasks).FirstOrDefault(n => n.Id == id);
-            return View(model);
+            Team model = _context.Teams.Include(n => n.Members).ThenInclude(n => n.AssignedRole).Include(n => n.MemberTypes).Include(n => n.Tasks).FirstOrDefault(n => n.Id == id);
+            return Json(model);
         }
 
         public IActionResult Index()

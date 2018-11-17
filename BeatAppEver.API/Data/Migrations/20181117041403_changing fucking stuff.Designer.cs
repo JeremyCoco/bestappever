@@ -4,14 +4,16 @@ using BeatAppEver.API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BeatAppEver.API.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181117041403_changing fucking stuff")]
+    partial class changingfuckingstuff
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -25,17 +27,7 @@ namespace BeatAppEver.API.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("ActualTimePassed");
-
-                    b.Property<int>("DificultyGradeByLeader");
-
-                    b.Property<int>("DificultyGradeByWorker");
-
                     b.Property<int?>("TeamId");
-
-                    b.Property<int>("TimeEstimatedByWorker");
-
-                    b.Property<string>("username");
 
                     b.HasKey("Id");
 

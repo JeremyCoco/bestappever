@@ -82,24 +82,23 @@ namespace BeatAppEver.API.Controllers
             {
                 var modelToAdd = new BestAppEver.API.Models.Task
                 {
-                    DificultyGradeByWorker = rand.Next(0, 100),
-                    DificultyGradeByLeader = rand.Next(0, 100),
+                    DificultyGradeByWorker = rand.Next(1, 100),
+                    DificultyGradeByLeader = rand.Next(1, 100),
 
-                    TimeEstimatedByWorker = rand.Next(0, 100),
-                    ActualTimePassed = rand.Next(0, 100)
+                    TimeEstimatedByWorker = rand.Next(1, 100),
+                    ActualTimePassed = rand.Next(1, 100)
                 };
-                modelToAdd.Title = "TODO task";
+                modelToAdd.Title = $"TODO task {modelToAdd.ActualTimePassed / modelToAdd.TimeEstimatedByWorker}";
 
                 if (rand.Next(0, 100) > 90)
                 {
-                    modelToAdd.ResultGradeByLeader = rand.Next(0, 50);
-                    modelToAdd.ResultGradeByWorker = rand.Next(0, 50);
+                    modelToAdd.ResultGradeByLeader = rand.Next(1, 50);
+                    modelToAdd.ResultGradeByWorker = rand.Next(1, 50);
                     modelToAdd.IsCompleted = true;
                     modelToAdd.CompletedAt = DateTime.Now;
-                    modelToAdd.Title = "Completed task";
+                    modelToAdd.Title = $"Completed task {modelToAdd.ResultGradeByLeader / modelToAdd.ResultGradeByWorker}|{modelToAdd.ActualTimePassed / modelToAdd.TimeEstimatedByWorker}";
                 }
 
-                modelToAdd.Title += $" {modelToAdd.ResultGradeByLeader/modelToAdd.ResultGradeByWorker}|{modelToAdd.ActualTimePassed/modelToAdd.TimeEstimatedByWorker}";
 
                 modelToAdd.username = model.Members.OrderBy(n => Guid.NewGuid()).Select(n => n.Email).FirstOrDefault();
                 modelToAdd.CreatedAt = DateTime.Now.AddDays(-2);

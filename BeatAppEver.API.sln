@@ -5,6 +5,12 @@ VisualStudioVersion = 15.0.28010.2016
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeatAppEver.API", "BeatAppEver.API\BeatAppEver.API.csproj", "{AC1FCCB2-4833-4015-B33C-29F7C603D565}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BestAppEver.NNTemplate", "..\BestAppEver.NNTemplate\BestAppEver.NNTemplate.csproj", "{3A29D4A5-51AB-4C85-8DFE-8C28E5EED618}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BestAppEver.NNApi", "BestAppEver.NNApi\BestAppEver.NNApi.csproj", "{C3305A71-7A10-4DC9-A722-A70231FC0AF2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BestAppEver.Generator", "BestAppEver.Generator\BestAppEver.Generator.csproj", "{3DDBE91B-EAF1-4E0E-9038-12BC3D2EA64F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +21,18 @@ Global
 		{AC1FCCB2-4833-4015-B33C-29F7C603D565}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC1FCCB2-4833-4015-B33C-29F7C603D565}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC1FCCB2-4833-4015-B33C-29F7C603D565}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A29D4A5-51AB-4C85-8DFE-8C28E5EED618}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A29D4A5-51AB-4C85-8DFE-8C28E5EED618}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A29D4A5-51AB-4C85-8DFE-8C28E5EED618}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A29D4A5-51AB-4C85-8DFE-8C28E5EED618}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3305A71-7A10-4DC9-A722-A70231FC0AF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3305A71-7A10-4DC9-A722-A70231FC0AF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3305A71-7A10-4DC9-A722-A70231FC0AF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3305A71-7A10-4DC9-A722-A70231FC0AF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DDBE91B-EAF1-4E0E-9038-12BC3D2EA64F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DDBE91B-EAF1-4E0E-9038-12BC3D2EA64F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DDBE91B-EAF1-4E0E-9038-12BC3D2EA64F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DDBE91B-EAF1-4E0E-9038-12BC3D2EA64F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

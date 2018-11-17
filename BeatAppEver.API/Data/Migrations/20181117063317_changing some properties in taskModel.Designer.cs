@@ -4,14 +4,16 @@ using BeatAppEver.API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BeatAppEver.API.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181117063317_changing some properties in taskModel")]
+    partial class changingsomepropertiesintaskModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,10 +31,6 @@ namespace BeatAppEver.API.Data.Migrations
 
                     b.Property<DateTime>("CompletedAt");
 
-                    b.Property<DateTime>("CreatedAt");
-
-                    b.Property<string>("Description");
-
                     b.Property<int>("DificultyGradeByLeader");
 
                     b.Property<int>("DificultyGradeByWorker");
@@ -46,8 +44,6 @@ namespace BeatAppEver.API.Data.Migrations
                     b.Property<int?>("TeamId");
 
                     b.Property<int>("TimeEstimatedByWorker");
-
-                    b.Property<string>("Title");
 
                     b.Property<string>("username");
 

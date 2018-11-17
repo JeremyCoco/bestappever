@@ -2,7 +2,7 @@
     <div class="container-fluid">
 	    <div class="row">
 		    <DashboardHeader />
-		    <div class="col-12 p-4 bg-warning text-light mb-4">
+		    <div class="col-12 p-4 bg-dark text-light mb-4">
 		    	<h2>
 		    		Current Tasks
 		    	</h2>

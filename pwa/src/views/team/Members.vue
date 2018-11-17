@@ -9,18 +9,19 @@
 		    </div>
 		    <div class="col-12 p-5">
 			    <div class="row">
-				    <div class="col-12 mb-3">
+				    <div class="col-12 mb-3" v-for="member in membersNames">
 						<a href="#" class="card text-left memberCard">
 							<div class="card-body">
+                                <img :src='member.avatarPath'>
 								<h5 class="card-title">
-									Name and surname
+									{{ member.firstname }} {{ member.lastname }}
 								</h5>
-								<p class="card-text">
-									Assigned tasks:
-									<strong>
-									<span class="text-warning">250</span>, of which <span class="text-success">230</span> completed
-								</strong>
-								</p>
+								<!--<p class="card-text" v-for="roleName in member.assignedRole">-->
+									<!--Assigned role: {{ roleName.name }}-->
+									<!--<strong>-->
+									<!--&lt;!&ndash;<span class="text-warning">250</span>, of which <span class="text-success">230</span> completed&ndash;&gt;-->
+								<!--</strong>-->
+								<!--</p>-->
 							</div>
 						</a>
 				    </div>
@@ -36,14 +37,30 @@
 	import DashboardFooter from "@/components/DashboardFooter";
 
 	export default {
+	  data: () => {
+	    return {
+	      membersNames: '',
+          roleName: ''
+        }
+      },
 		components: {
 			"DashboardHeader": DashboardHeader,
 			"DashboardFooter": DashboardFooter
-		}
+		},
+      mounted: function() {
+        let self = this;
+        this.$axios
+          .get("http://kathon.hackierz.com/Teams/one/1")
+          .then(function(req) {
+            self.membersNames = req.data.members.map((objects)=>{
+              return objects
+            });
+          });
+      },
 	};
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .dashboardTopHeader {
   background: url(/img/app_bg.png) no-repeat center center;
   background-size: cover;
@@ -52,7 +69,16 @@
 .memberCard {
 	text-decoration: none;
 	color: initial;
-	
+    .card-body {
+        display: flex;
+    }
+    img {
+        width: 10%;
+    }
+    h5 {
+        align-self: center;
+        margin: 0   ;
+    }
 }
 
 .memberCard:hover {

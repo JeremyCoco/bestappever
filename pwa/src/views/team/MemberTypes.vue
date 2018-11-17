@@ -2,7 +2,7 @@
     <div class="container-fluid">
 	    <div class="row">
 		    <DashboardHeader />
-		    <div class="col-12 p-4 bg-success text-light mb-4">
+		    <div class="col-12 p-4 bg-dark text-light mb-4">
 		    	<h2>
 		    		Member Types
 		    	</h2>
@@ -10,16 +10,16 @@
 		    <div class="col-12 pb-5">
 			    <div class="row">
 				    <div class="col-12 mb-3">
-						<div class="card text-left memberTypeCard border-success">
+						<div class="card text-left memberTypeCard border-dark" v-for="tasks in tasksName">
 							<div class="card-body">
 								
 								<h5 class="card-title">
-									Title name
+									{{ tasks.name }}
 								</h5>
 								<p class="card-text">
-									Example tasks: 
+									Description:
 									<i>
-										task name
+										{{ tasks.description }}
 									</i>
 								</p>
 							</div>
@@ -33,15 +33,30 @@
 </template>
 
 <script>
-	import DashboardHeader from "@/components/DashboardHeader";
-	import DashboardFooter from "@/components/DashboardFooter";
+import DashboardHeader from "@/components/DashboardHeader";
+import DashboardFooter from "@/components/DashboardFooter";
 
-	export default {
-		components: {
-			"DashboardHeader": DashboardHeader,
-			"DashboardFooter": DashboardFooter
-		}
-	};
+export default {
+  data: () => {
+    return {
+      tasksName: ""
+    };
+  },
+  components: {
+    DashboardHeader: DashboardHeader,
+    DashboardFooter: DashboardFooter
+  },
+  mounted: function() {
+    let self = this;
+    this.$axios
+      .get("http://kathon.hackierz.com/Teams/one/1")
+      .then(function(req) {
+        self.tasksName = req.data.memberTypes.map(objects => {
+          return objects;
+        });
+      });
+  }
+};
 </script>
 
 <style scoped>
@@ -51,14 +66,13 @@
 }
 
 .memberTypeCard {
-	text-decoration: none;
-	color: initial;
+  text-decoration: none;
+  color: initial;
 }
 
 .memberTypeCard:hover {
-	text-decoration: none;
-	color: initial;
-	filter: drop-shadow(3px 6px 3px rgba(0, 0, 0, 0.6));
-	
+  text-decoration: none;
+  color: initial;
+  filter: drop-shadow(3px 6px 3px rgba(0, 0, 0, 0.6));
 }
 </style>

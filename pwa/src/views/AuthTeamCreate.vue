@@ -55,6 +55,9 @@ export default {
     };
   },
   mounted: function() {},
+  firebase: {
+    teams: db.ref("teams")
+  },
   watch: {
     teamName: function(val) {
       this.teamName = val;

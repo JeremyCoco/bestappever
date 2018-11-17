@@ -19,11 +19,10 @@
 							</label>
 							<input type="text" class="form-control" v-model="teamName" />
 						</div>
-						<router-link :to="{ path: '/Auth/Team/' + teamName + '/Login' }"
-						tag="button"
+						<button @click="findTeam(teamName)"
 						class="btn btn-primary">
 							FIND
-						</router-link>
+						</button>
 
 						<p class="mb-0 mt-4">
 							Can't find your team?
@@ -55,9 +54,24 @@ export default {
     };
   },
   mounted: function() {},
-  watch: {
-    teamName: function(val) {
-      this.teamName = val;
+  firebase: {
+    teams: db.ref("teams")
+  },
+  methods: {
+    findTeam(teamName) {
+      // this.$firebaseRefs.teams.push({
+      //   name: "ziomki2"
+      // });
+      let self = this;
+      this.$firebaseRefs.teams.once("value").then(function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+          let childData = childSnapshot.val();
+          if (childData.name === teamName) {
+            self.$router.push(`/Auth/Team/${teamName}/Login`);
+          }
+        });
+      });
+      this.$router.push(`/Auth/Team/${teamName}/Register`);
     }
   }
 };

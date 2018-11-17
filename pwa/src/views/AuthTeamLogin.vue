@@ -20,13 +20,13 @@
 							<label>
 								EMAIL
 							</label>
-							<input type="text" class="form-control" v-model="userName" />
+							<input type="text" class="form-control" />
 						</div>
 						<div class="form-group mt-3 mb-5">
 							<label>
 								PASSWORD
 							</label>
-							<input type="password" class="form-control" v-model="userPasswd" />
+							<input type="password" class="form-control" />
 						</div>
 						<button class="btn btn-primary" v-on:click="loginUser()">
 							LOGIN
@@ -61,13 +61,13 @@ import { db } from "../db";
 
 export default {
   data: () => {
-    "";
-    "";
+    // userName: ''
+    // userPasswd: ''
   },
   watch: {},
   methods: {
     loginUser: function() {
-      console.log("mocked action: loginUser");
+      this.$router.push(`/Team/Dashboard`);
     }
   }
 };

@@ -41,6 +41,7 @@ namespace BeatAppEver.API.Controllers
             }
 
             _context.Teams.Add(kitchenTeam);
+            _context.SaveChanges();
 
             return RedirectToAction("Index");
         }
@@ -64,6 +65,7 @@ namespace BeatAppEver.API.Controllers
             }
 
             _context.Teams.Add(cSiteTeam);
+            _context.SaveChanges();
 
             return RedirectToAction("Index");
         }

@@ -61,6 +61,14 @@ namespace BeatAppEver.API
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
+
+            app.UseCors(builder =>
+                builder.AllowAnyMethod()
+                .AllowAnyOrigin()
+                .AllowCredentials()
+                .AllowAnyHeader()
+            );
+
             app.UseAuthentication();
 
             app.UseMvc(routes =>

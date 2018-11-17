@@ -1,0 +1,9 @@
+﻿@model ICollection<BestAppEver.API.Models.Team>
+
+@{
+    Layout = "";
+}
+
+@using Newtonsoft.Json;
+@JsonConvert.SerializeObject(Model);
+

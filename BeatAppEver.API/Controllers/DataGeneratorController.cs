@@ -75,7 +75,8 @@ namespace BeatAppEver.API.Controllers
         {
             Random rand = new Random();
 
-            Team model = _context.Teams.Include(n => n.Members).ThenInclude(n => n.AssignedRole).Include(n => n.MemberTypes).FirstOrDefault(n => n.Id == 1);
+            Team model = _context.Teams.Include(n => n.Members).Include(n => n.Tasks).FirstOrDefault(n => n.Id == 1);
+            model.Tasks.Clear();
 
             for(int i = 0; i < number; i++)
             {
@@ -87,14 +88,22 @@ namespace BeatAppEver.API.Controllers
                     TimeEstimatedByWorker = rand.Next(0, 100),
                     ActualTimePassed = rand.Next(0, 100)
                 };
+                modelToAdd.Title = "TODO task";
 
                 if (rand.Next(0, 100) > 90)
                 {
                     modelToAdd.ResultGradeByLeader = rand.Next(0, 50);
                     modelToAdd.ResultGradeByWorker = rand.Next(0, 50);
+                    modelToAdd.IsCompleted = true;
+                    modelToAdd.CompletedAt = DateTime.Now;
+                    modelToAdd.Title = "Completed task";
                 }
 
+                modelToAdd.Title += $" {modelToAdd.ResultGradeByLeader/modelToAdd.ResultGradeByWorker}|{modelToAdd.ActualTimePassed/modelToAdd.TimeEstimatedByWorker}";
+
                 modelToAdd.username = model.Members.OrderBy(n => Guid.NewGuid()).Select(n => n.Email).FirstOrDefault();
+                modelToAdd.CreatedAt = DateTime.Now.AddDays(-2);
+                modelToAdd.Description = "In neque nunc, aliquet sit amet odio in, semper venenatis mi. Sed at tellus ut nunc tincidunt tincidunt. Nunc vel nulla augue. Integer ac scelerisque magna.";
 
                 model.Tasks.Add(modelToAdd);
             }

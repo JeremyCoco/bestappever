@@ -80,6 +80,7 @@ export default {
             self.$firebaseRefs.teams.push({
               name: teamName
             });
+            this.$router.push(`/Auth/Team/${teamName}/Register`);
           }
         });
     },

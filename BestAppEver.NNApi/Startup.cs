@@ -48,6 +48,13 @@ namespace BestAppEver.NNApi
                 app.UseHsts();
             }
 
+            app.UseCors(builder =>
+                builder.AllowAnyMethod()
+                .AllowAnyOrigin()
+                .AllowCredentials()
+                .AllowAnyHeader()
+            );
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();

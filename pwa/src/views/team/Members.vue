@@ -10,7 +10,7 @@
 		    <div class="col-12 p-5">
 			    <div class="row">
 				    <div class="col-12 mb-3" v-for="member in membersNames">
-						<a href="#" class="card text-left memberCard">
+						<router-link :to="{ path: '/team/memberDetails/' + member.id }" class="card text-left memberCard">
 							<div class="card-body">
                                 <img :src='member.avatarPath'>
 								<h5 class="card-title">
@@ -23,7 +23,7 @@
 								<!--</strong>-->
 								<!--</p>-->
 							</div>
-						</a>
+						</router-link>
 				    </div>
 			    </div>
 		    </div>

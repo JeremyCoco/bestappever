@@ -28,7 +28,7 @@
 							</label>
 							<input type="password" class="form-control" />
 						</div>
-						<button class="btn btn-primary" v-on:click="loginUser()">
+						<button class="btn btn-primary" @click="loginUser()">
 							LOGIN
 						</button>
 

@@ -20,11 +20,15 @@
                                     <p v-if="isCompleted">Completed: {{ completedAt | formatDate }}</p>
                                     <p v-else>Not finished</p>
                                 </div>
-                                <h5 class="card-title">{{ title }}</h5>
+                                <h2 class="card-title">{{ title }}</h2>
                                 <p class="card-text"> {{ username }}</p>
                                 <div class="employee-grade">
-                                    <p>Time estimated for task </p>
+                                    <p>Actual time passed for task </p>
                                     <p>{{ actualTimePassed }}</p>
+                                </div>
+                                <div class="employee-grade">
+                                    <p>Estimeted time for task </p>
+                                    <p>{{ timeEstimatedByWorker }}</p>
                                 </div>
                                 <div class="employee-grade">
                                     <p>Grade from lider</p>
@@ -33,6 +37,14 @@
                                 <div class="employee-grade">
                                     <p>Grade from employee</p>
                                     <p>{{ resultGradeByWorker }}</p>
+                                </div>
+                                <div class="employee-grade">
+                                    <p>Dificulty from lider</p>
+                                    <p>{{ dificultyGradeByLeader }}</p>
+                                </div>
+                                <div class="employee-grade">
+                                    <p>Dificulty from employee</p>
+                                    <p>{{ dificultyGradeByWorker }}</p>
                                 </div>
                                 <div class="smallDividerBlock mt-5 mb-5"></div>
                                 <p class="card-text text-center"> {{ description }}</p>
@@ -62,6 +74,8 @@ export default {
       actualTimePassed: "",
       resultGradeByLeader: "",
       resultGradeByWorker: "",
+      dificultyGradeByLeader: "",
+      dificultyGradeByWorker: "",
       description: "",
       showTask: false
     };
@@ -89,6 +103,8 @@ export default {
             self.resultGradeByLeader = objects.resultGradeByLeader;
             self.resultGradeByWorker = objects.resultGradeByWorker;
             self.description = objects.description;
+            self.dificultyGradeByLeader = objects.dificultyGradeByLeader;
+            self.dificultyGradeByWorker = objects.dificultyGradeByWorker;
           }
         });
       });

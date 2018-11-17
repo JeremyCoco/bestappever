@@ -3,9 +3,6 @@
 	    <div class="row">
 		    <DashboardHeader />
 		    <div class="col-12 p-5">
-			    <div class="xd">
-			    	<button @click="getCosik">sdsadasd</button>
-			    </div>
 		    </div>
 		    <DashboardFooter />
 	    </div>
@@ -22,18 +19,18 @@ export default {
     DashboardFooter: DashboardFooter
   },
   mounted: function() {
-    this.$axios
-      .get("http://kathon.hackierz.com/Teams/one/1")
-      .then(function(data) {
-        console.log(data.data);
-      });
+    // this.$axios
+    //   .get("http://kathon.hackierz.com/Teams/one/1")
+    //   .then(function(data) {
+    //     console.log(data.data);
+    //   });
   },
   methods: {
-    getCosik() {
-      this.$axios.get("http://kathon.hackierz.com/Teams").then(function(data) {
-        console.log(data);
-      });
-    }
+    // getCosik() {
+    //   this.$axios.get("http://kathon.hackierz.com/Teams").then(function(data) {
+    //     console.log(data);
+    //   });
+    // }
   }
 };
 </script>

@@ -44,24 +44,25 @@
 </template>
 
 <script>
-	import firebase from "firebase";
-	import { db } from "../db";
+import firebase from "firebase";
+import { db } from "../db";
 
-	export default {
-		data: () => {
-			return {
-		      teamName: ''
-		    }
-		},
-		mounted: function() {
-
-		},
-		watch: {
-	        teamName: function(val) {
-	            this.teamName = val;
-	        }
-	    }
-	};
+export default {
+  data: () => {
+    return {
+      teamName: ""
+    };
+  },
+  mounted: function() {},
+  firebase: {
+    teams: db.ref("teams")
+  },
+  watch: {
+    teamName: function(val) {
+      this.teamName = val;
+    }
+  }
+};
 </script>
 
 <style scoped>
